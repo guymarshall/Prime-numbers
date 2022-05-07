@@ -21,6 +21,18 @@ def main():
         if is_prime:
             prime_number_count += 1
             print(f"{prime_number_count}: {number}")
+        number += 1
 
 if __name__ == "__main__":
     main()
+
+# int primeNumberCount = 0;
+# int number = 2;
+# while (primeNumberCount < userInput) {
+#     boolean isPrime = isPrimeNumber(number);
+#     if (isPrime) {
+#         primeNumberCount++;
+#         System.out.printf("%d: %d%n", primeNumberCount, number);
+#     }
+#     number++;
+# }
