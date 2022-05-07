@@ -25,14 +25,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# int primeNumberCount = 0;
-# int number = 2;
-# while (primeNumberCount < userInput) {
-#     boolean isPrime = isPrimeNumber(number);
-#     if (isPrime) {
-#         primeNumberCount++;
-#         System.out.printf("%d: %d%n", primeNumberCount, number);
-#     }
-#     number++;
-# }
