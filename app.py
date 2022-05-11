@@ -30,7 +30,7 @@ def main():
         is_prime = is_prime_number(number)
         if is_prime:
             prime_number_count += 1
-            # print(f"{prime_number_count}: {number}")
+            print(f"{prime_number_count}: {number}")
             c.execute("""INSERT INTO prime_numbers VALUES (
                 :input,
                 :prime
