@@ -15,19 +15,6 @@ def main():
     #     if is_prime(i):
     #         print(i)
 
-    prime_numbers = []
-
-    prime_number_count = 0
-    number = 2
-    while prime_number_count < user_input:
-        is_prime = is_prime_number(number)
-        if is_prime:
-            prime_number_count += 1
-            prime_numbers.append({prime_number_count: number})
-            # print(f"{prime_number_count}: {number}")
-        number += 1
-
-
     conn = sqlite3.connect("prime_numbers.db")
 
     c = conn.cursor()
@@ -37,19 +24,26 @@ def main():
         prime integer
     )""")
 
-    for prime_number_count,prime_number in enumerate(prime_numbers):
-        c.execute("""INSERT INTO prime_numbers VALUES (
-            :input,
-            :prime
-        )""", {"input": prime_number_count, "prime": prime_number})
+    prime_number_count = 0
+    number = 2
+    while prime_number_count < user_input:
+        is_prime = is_prime_number(number)
+        if is_prime:
+            prime_number_count += 1
+            # print(f"{prime_number_count}: {number}")
+            c.execute("""INSERT INTO prime_numbers VALUES (
+                :input,
+                :prime
+            )""", {"input": prime_number_count, "prime": number})
+        number += 1
 
     conn.commit()
 
-    c.execute("SELECT * FROM prime_numbers")
+    # c.execute("SELECT * FROM prime_numbers")
 
-    print(c.fetchall())
+    # print(c.fetchall())
 
-    conn.commit()
+    # conn.commit()
 
     conn.close()
 
